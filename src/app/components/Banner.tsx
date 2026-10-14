@@ -20,7 +20,7 @@ const Banner = () => {
       </div>
 
       {/* Readable text background */}
-      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#FDFBF7] via-[#FDFBF7]/90 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-r from-[#FDFBF7] via-[#FDFBF7]/80 to-transparent" />
 
       <div className="mx-auto flex min-h-130 max-w-[1600px] items-center px-5 py-16 sm:min-h-150 sm:px-10 md:px-14 lg:min-h-162.5 lg:px-20">
 
@@ -67,7 +67,7 @@ const Banner = () => {
 
           {/* Button */}
           <Link
-            href="/products"
+            href="/components/products"
             className="group mt-8 inline-flex items-center gap-4 rounded-full bg-[#795A43] px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-[#493A30] hover:shadow-lg"
           >
             Shop Now
