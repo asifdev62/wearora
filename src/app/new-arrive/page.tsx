@@ -1,13 +1,14 @@
 
-import ProductCard from "./ProductCard";
+
 import productsData from "@/data/products.json";
+import ProductCard from "../components/ProductCard";
 
 const NewArrivePage = () => {
     const newProducts = productsData.filter((product) => product.isNew === true);
 
     return (
         <main className="min-h-screen bg-gray-50 px-4 py-10 sm:px-6 lg:px-10">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-7xl py-10">
                 <div className="mb-8">
                     <p className="font-semibold uppercase tracking-widest text-green-700">
                         Wearora Collection

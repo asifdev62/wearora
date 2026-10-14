@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 interface Product {
   id: string;
@@ -36,14 +37,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Product Image */}
-      <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gray-50 p-5">
+      <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gray-50 p-5 ">
         {product.images?.[0] ? (
           <Image
             src={product.images[0]}
             alt={product.name}
             width={300}
             height={300}
-            className="h-full w-full object-contain transition duration-500 group-hover:scale-110"
+            className="h-full w-full transition duration-500 group-hover:scale-110 object-contain "
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
@@ -109,13 +110,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Price */}
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="text-xl font-bold text-gray-900">
-            ৳{Math.round(discountedPrice)}
+          <span className="text-xl font-bold text-gray-900 flex items-center ">
+            <TbCurrencyTaka  size={22}/> {Math.round(discountedPrice)}
           </span>
 
           {product.discountPercentage > 0 && (
-            <span className="text-sm text-gray-400 line-through">
-              ৳{product.price}
+            <span className="text-sm text-gray-400 line-through flex items-center gap-1">
+              <TbCurrencyTaka />
+              {product.price}
             </span>
           )}
         </div>

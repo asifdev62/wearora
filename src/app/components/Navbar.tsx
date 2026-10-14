@@ -20,7 +20,7 @@ const navLinks = [
   { name: "Women", href: "/components/products?audience=Women" },
   { name: "Boys", href: "/components/products?audience=Boys" },
   { name: "Girls", href: "/components/products?audience=Girls" },
-  { name: "New Arrivals", href: "/NewArrive" },
+  { name: "New Arrivals", href: "/new-arrive" },
 ];
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[#EAE3DA] bg-[#FDFBF7]/95 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1 sm:px-6 lg:px-8">
 
         {/* Logo */}
         <Link href="/" className="shrink-0">
