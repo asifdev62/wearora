@@ -16,11 +16,11 @@ import {
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "All Products", href: "/components/products" },
-  { name: "Men", href: "/men" },
-  { name: "Women", href: "/women" },
-  { name: "Boys", href: "/boys" },
-  { name: "Girls", href: "/girls" },
-  { name: "New Arrivals", href: "/new-arrivals" },
+  { name: "Men", href: "/components/products?audience=Men" },
+  { name: "Women", href: "/components/products?audience=Women" },
+  { name: "Boys", href: "/components/products?audience=Boys" },
+  { name: "Girls", href: "/components/products?audience=Girls" },
+  { name: "New Arrivals", href: "/NewArrive" },
 ];
 
 export default function Navbar() {

@@ -1,0 +1,819 @@
+[
+  {
+    "id": "wear-001",
+    "slug": "mens-classic-cotton-t-shirt-black",
+    "name": "Classic Cotton T-Shirt",
+    "nameBn": "ক্লাসিক কটন টি-শার্ট",
+    "audience": "Men",
+    "clothingType": "T-shirt",
+    "category": "Casual Wear",
+    "price": 850,
+    "discountPercentage": 20,
+    "images": [
+      "/products/men-tshirt-black.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "White",
+      "Navy"
+    ],
+    "isNew": true,
+    "rating": 4.5,
+    "stock": 25,
+    "description": "Everyday cotton T-shirt with a comfortable regular fit."
+  },
+  {
+    "id": "wear-002",
+    "slug": "mens-premium-oxford-shirt-blue",
+    "name": "Premium Oxford Shirt",
+    "nameBn": "প্রিমিয়াম অক্সফোর্ড শার্ট",
+    "audience": "Men",
+    "clothingType": "Shirt",
+    "category": "Formal Wear",
+    "price": 1650,
+    "discountPercentage": 15,
+    "images": [
+      "/products/men-oxford-shirt-blue.jpg"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Blue",
+      "White",
+      "Light Grey"
+    ],
+    "isNew": true,
+    "rating": 4.7,
+    "stock": 18,
+    "description": "A smart Oxford shirt for office days and special occasions."
+  },
+  {
+    "id": "wear-003",
+    "slug": "mens-traditional-panjabi-white",
+    "name": "Traditional Cotton Panjabi",
+    "nameBn": "ঐতিহ্যবাহী কটন পাঞ্জাবি",
+    "audience": "Men",
+    "clothingType": "Panjabi",
+    "category": "Ethnic Wear",
+    "price": 1800,
+    "discountPercentage": 10,
+    "images": [
+      "/products/men-panjabi-white.jpg"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "White",
+      "Black",
+      "Olive"
+    ],
+    "isNew": false,
+    "rating": 4.8,
+    "stock": 12,
+    "description": "A clean, comfortable Panjabi for festivals and family occasions."
+  },
+  {
+    "id": "wear-004",
+    "slug": "mens-slim-fit-jeans-blue",
+    "name": "Slim Fit Jeans",
+    "nameBn": "স্লিম ফিট জিন্স",
+    "audience": "Men",
+    "clothingType": "Jeans",
+    "category": "Bottom Wear",
+    "price": 2100,
+    "discountPercentage": 25,
+    "images": [
+      "/products/men-jeans-blue.jpg"
+    ],
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "isNew": false,
+    "rating": 4.4,
+    "stock": 20,
+    "description": "Versatile denim jeans with a modern slim fit."
+  },
+  {
+    "id": "wear-005",
+    "slug": "mens-casual-chino-pants-beige",
+    "name": "Casual Chino Pant",
+    "nameBn": "ক্যাজুয়াল চিনো প্যান্ট",
+    "audience": "Men",
+    "clothingType": "Pant",
+    "category": "Bottom Wear",
+    "price": 1450,
+    "discountPercentage": 12,
+    "images": [
+      "/products/men-chino-beige.jpg"
+    ],
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36"
+    ],
+    "colors": [
+      "Beige",
+      "Black",
+      "Navy"
+    ],
+    "isNew": true,
+    "rating": 4.3,
+    "stock": 16,
+    "description": "Easy-to-style chinos for everyday smart-casual outfits."
+  },
+  {
+    "id": "wear-006",
+    "slug": "mens-oversized-graphic-t-shirt",
+    "name": "Oversized Graphic T-Shirt",
+    "nameBn": "ওভারসাইজড গ্রাফিক টি-শার্ট",
+    "audience": "Men",
+    "clothingType": "T-shirt",
+    "category": "Casual Wear",
+    "price": 990,
+    "discountPercentage": 18,
+    "images": [
+      "/products/men-oversized-tee.jpg"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Black",
+      "Cream",
+      "Grey"
+    ],
+    "isNew": true,
+    "rating": 4.6,
+    "stock": 22,
+    "description": "Relaxed-fit graphic tee for a laid-back streetwear look."
+  },
+  {
+    "id": "wear-007",
+    "slug": "womens-floral-summer-dress",
+    "name": "Floral Summer Dress",
+    "nameBn": "ফ্লোরাল সামার ড্রেস",
+    "audience": "Women",
+    "clothingType": "Dress",
+    "category": "Western Wear",
+    "price": 2200,
+    "discountPercentage": 15,
+    "images": [
+      "/products/women-floral-dress.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Pink",
+      "Blue",
+      "Lavender"
+    ],
+    "isNew": true,
+    "rating": 4.6,
+    "stock": 10,
+    "description": "A breezy floral dress made for sunny days and outings."
+  },
+  {
+    "id": "wear-008",
+    "slug": "womens-everyday-kurti-maroon",
+    "name": "Everyday Cotton Kurti",
+    "nameBn": "এভরিডে কটন কুর্তি",
+    "audience": "Women",
+    "clothingType": "Kurti",
+    "category": "Ethnic Wear",
+    "price": 1250,
+    "discountPercentage": 10,
+    "images": [
+      "/products/women-kurti-maroon.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "Mustard",
+      "Teal"
+    ],
+    "isNew": false,
+    "rating": 4.5,
+    "stock": 19,
+    "description": "A breathable cotton kurti for comfortable everyday wear."
+  },
+  {
+    "id": "wear-009",
+    "slug": "womens-relaxed-fit-jeans",
+    "name": "Relaxed Fit Jeans",
+    "nameBn": "রিল্যাক্সড ফিট জিন্স",
+    "audience": "Women",
+    "clothingType": "Jeans",
+    "category": "Bottom Wear",
+    "price": 1950,
+    "discountPercentage": 20,
+    "images": [
+      "/products/women-jeans.jpg"
+    ],
+    "sizes": [
+      "26",
+      "28",
+      "30",
+      "32",
+      "34"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "isNew": true,
+    "rating": 4.4,
+    "stock": 14,
+    "description": "Relaxed denim jeans that pair well with tees and tops."
+  },
+  {
+    "id": "wear-010",
+    "slug": "womens-casual-top-white",
+    "name": "Everyday Casual Top",
+    "nameBn": "এভরিডে ক্যাজুয়াল টপ",
+    "audience": "Women",
+    "clothingType": "Top",
+    "category": "Western Wear",
+    "price": 950,
+    "discountPercentage": 5,
+    "images": [
+      "/products/women-white-top.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White",
+      "Black",
+      "Sage"
+    ],
+    "isNew": false,
+    "rating": 4.2,
+    "stock": 24,
+    "description": "A simple versatile top for daily outfits."
+  },
+  {
+    "id": "wear-011",
+    "slug": "womens-pleated-skirt-black",
+    "name": "Pleated Midi Skirt",
+    "nameBn": "প্লিটেড মিডি স্কার্ট",
+    "audience": "Women",
+    "clothingType": "Skirt",
+    "category": "Western Wear",
+    "price": 1350,
+    "discountPercentage": 15,
+    "images": [
+      "/products/women-pleated-skirt.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "Black",
+      "Cream",
+      "Olive"
+    ],
+    "isNew": true,
+    "rating": 4.5,
+    "stock": 11,
+    "description": "A flowing pleated skirt for casual and dressy looks."
+  },
+  {
+    "id": "wear-012",
+    "slug": "womens-elegant-saree",
+    "name": "Elegant Everyday Saree",
+    "nameBn": "এলিগ্যান্ট শাড়ি",
+    "audience": "Women",
+    "clothingType": "Saree",
+    "category": "Ethnic Wear",
+    "price": 2600,
+    "discountPercentage": 12,
+    "images": [
+      "/products/women-saree.jpg"
+    ],
+    "sizes": [
+      "Free Size"
+    ],
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "isNew": false,
+    "rating": 4.7,
+    "stock": 8,
+    "description": "An elegant saree for celebrations and special moments."
+  },
+  {
+    "id": "wear-013",
+    "slug": "boys-cotton-t-shirt-green",
+    "name": "Boys Cotton T-Shirt",
+    "nameBn": "ছেলেদের কটন টি-শার্ট",
+    "audience": "Boys",
+    "clothingType": "T-shirt",
+    "category": "Kids Wear",
+    "price": 550,
+    "discountPercentage": 10,
+    "images": [
+      "/products/boys-tshirt-green.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Green",
+      "Blue",
+      "Yellow"
+    ],
+    "isNew": true,
+    "rating": 4.4,
+    "stock": 20,
+    "description": "Soft cotton tee designed for active everyday play."
+  },
+  {
+    "id": "wear-014",
+    "slug": "boys-casual-shirt-check",
+    "name": "Boys Check Casual Shirt",
+    "nameBn": "ছেলেদের চেক ক্যাজুয়াল শার্ট",
+    "audience": "Boys",
+    "clothingType": "Shirt",
+    "category": "Kids Wear",
+    "price": 790,
+    "discountPercentage": 15,
+    "images": [
+      "/products/boys-check-shirt.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Blue Check",
+      "Red Check"
+    ],
+    "isNew": false,
+    "rating": 4.3,
+    "stock": 13,
+    "description": "A smart checked shirt for outings and family events."
+  },
+  {
+    "id": "wear-015",
+    "slug": "boys-festive-panjabi",
+    "name": "Boys Festive Panjabi",
+    "nameBn": "ছেলেদের উৎসবের পাঞ্জাবি",
+    "audience": "Boys",
+    "clothingType": "Panjabi",
+    "category": "Kids Ethnic Wear",
+    "price": 1100,
+    "discountPercentage": 10,
+    "images": [
+      "/products/boys-panjabi.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "White",
+      "Navy",
+      "Maroon"
+    ],
+    "isNew": true,
+    "rating": 4.6,
+    "stock": 9,
+    "description": "A festive Panjabi for Eid and family celebrations."
+  },
+  {
+    "id": "wear-016",
+    "slug": "boys-denim-shorts",
+    "name": "Boys Denim Shorts",
+    "nameBn": "ছেলেদের ডেনিম শর্টস",
+    "audience": "Boys",
+    "clothingType": "Shorts",
+    "category": "Kids Wear",
+    "price": 650,
+    "discountPercentage": 20,
+    "images": [
+      "/products/boys-denim-shorts.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "isNew": false,
+    "rating": 4.2,
+    "stock": 17,
+    "description": "Comfortable denim shorts for warm weather."
+  },
+  {
+    "id": "wear-017",
+    "slug": "girls-floral-frock-pink",
+    "name": "Floral Party Frock",
+    "nameBn": "মেয়েদের ফ্লোরাল পার্টি ফ্রক",
+    "audience": "Girls",
+    "clothingType": "Frock",
+    "category": "Kids Wear",
+    "price": 1450,
+    "discountPercentage": 20,
+    "images": [
+      "/products/girls-floral-frock.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Pink",
+      "Lilac",
+      "Peach"
+    ],
+    "isNew": true,
+    "rating": 4.8,
+    "stock": 7,
+    "description": "A charming floral frock for birthdays and celebrations."
+  },
+  {
+    "id": "wear-018",
+    "slug": "girls-cotton-dress-yellow",
+    "name": "Girls Cotton Summer Dress",
+    "nameBn": "মেয়েদের কটন সামার ড্রেস",
+    "audience": "Girls",
+    "clothingType": "Dress",
+    "category": "Kids Wear",
+    "price": 990,
+    "discountPercentage": 10,
+    "images": [
+      "/products/girls-summer-dress.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Yellow",
+      "Pink",
+      "Mint"
+    ],
+    "isNew": true,
+    "rating": 4.5,
+    "stock": 15,
+    "description": "A light cotton dress for comfortable summer days."
+  },
+  {
+    "id": "wear-019",
+    "slug": "girls-skirt-top-set",
+    "name": "Girls Skirt and Top Set",
+    "nameBn": "মেয়েদের স্কার্ট ও টপ সেট",
+    "audience": "Girls",
+    "clothingType": "Set",
+    "category": "Kids Wear",
+    "price": 1200,
+    "discountPercentage": 15,
+    "images": [
+      "/products/girls-skirt-top-set.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Pink",
+      "Purple",
+      "Blue"
+    ],
+    "isNew": false,
+    "rating": 4.4,
+    "stock": 12,
+    "description": "A coordinated skirt and top set for everyday outings."
+  },
+  {
+    "id": "wear-020",
+    "slug": "girls-party-gown-blue",
+    "name": "Girls Party Gown",
+    "nameBn": "মেয়েদের পার্টি গাউন",
+    "audience": "Girls",
+    "clothingType": "Gown",
+    "category": "Kids Wear",
+    "price": 1850,
+    "discountPercentage": 25,
+    "images": [
+      "/products/girls-party-gown.jpg"
+    ],
+    "sizes": [
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y",
+      "12Y"
+    ],
+    "colors": [
+      "Blue",
+      "Rose",
+      "Lavender"
+    ],
+    "isNew": false,
+    "rating": 4.7,
+    "stock": 6,
+    "description": "A special-occasion gown with a graceful silhouette."
+  },
+  {
+    "id": "wear-021",
+    "slug": "womens-linen-shirt",
+    "name": "Women's Linen Shirt",
+    "nameBn": "মেয়েদের লিনেন শার্ট",
+    "audience": "Women",
+    "clothingType": "Shirt",
+    "category": "Casual Wear",
+    "price": 1550,
+    "discountPercentage": 18,
+    "images": [
+      "/products/women-linen-shirt.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "White",
+      "Sand",
+      "Sky Blue"
+    ],
+    "isNew": true,
+    "rating": 4.5,
+    "stock": 13,
+    "description": "A lightweight linen-blend shirt for an easy polished look."
+  },
+  {
+    "id": "wear-022",
+    "slug": "mens-formal-trousers",
+    "name": "Men's Formal Trousers",
+    "nameBn": "ছেলেদের ফরমাল ট্রাউজার",
+    "audience": "Men",
+    "clothingType": "Pant",
+    "category": "Formal Wear",
+    "price": 1750,
+    "discountPercentage": 15,
+    "images": [
+      "/products/men-formal-trousers.jpg"
+    ],
+    "sizes": [
+      "30",
+      "32",
+      "34",
+      "36",
+      "38"
+    ],
+    "colors": [
+      "Black",
+      "Charcoal",
+      "Navy"
+    ],
+    "isNew": false,
+    "rating": 4.3,
+    "stock": 16,
+    "description": "Tailored formal trousers for office and events."
+  },
+  {
+    "id": "wear-023",
+    "slug": "womens-long-kurti",
+    "name": "Printed Long Kurti",
+    "nameBn": "প্রিন্টেড লং কুর্তি",
+    "audience": "Women",
+    "clothingType": "Kurti",
+    "category": "Ethnic Wear",
+    "price": 1650,
+    "discountPercentage": 22,
+    "images": [
+      "/products/women-long-kurti.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Indigo",
+      "Coral",
+      "Green"
+    ],
+    "isNew": true,
+    "rating": 4.6,
+    "stock": 10,
+    "description": "A printed long kurti with a relaxed, easy fit."
+  },
+  {
+    "id": "wear-024",
+    "slug": "boys-polo-t-shirt",
+    "name": "Boys Polo T-Shirt",
+    "nameBn": "ছেলেদের পোলো টি-শার্ট",
+    "audience": "Boys",
+    "clothingType": "T-shirt",
+    "category": "Kids Wear",
+    "price": 620,
+    "discountPercentage": 5,
+    "images": [
+      "/products/boys-polo.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Navy",
+      "White",
+      "Red"
+    ],
+    "isNew": false,
+    "rating": 4.3,
+    "stock": 18,
+    "description": "A classic polo tee for school events and weekends."
+  },
+  {
+    "id": "wear-025",
+    "slug": "girls-cotton-leggings",
+    "name": "Girls Cotton Leggings",
+    "nameBn": "মেয়েদের কটন লেগিংস",
+    "audience": "Girls",
+    "clothingType": "Leggings",
+    "category": "Kids Wear",
+    "price": 450,
+    "discountPercentage": 8,
+    "images": [
+      "/products/girls-leggings.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Black",
+      "Pink",
+      "Navy"
+    ],
+    "isNew": false,
+    "rating": 4.2,
+    "stock": 21,
+    "description": "Stretchy cotton leggings for comfortable daily wear."
+  },
+  {
+    "id": "wear-026",
+    "slug": "mens-lightweight-hoodie",
+    "name": "Lightweight Hoodie",
+    "nameBn": "লাইটওয়েট হুডি",
+    "audience": "Men",
+    "clothingType": "Hoodie",
+    "category": "Casual Wear",
+    "price": 1850,
+    "discountPercentage": 30,
+    "images": [
+      "/products/men-hoodie.jpg"
+    ],
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "Black",
+      "Olive"
+    ],
+    "isNew": true,
+    "rating": 4.6,
+    "stock": 14,
+    "description": "A lightweight hoodie for layering on cooler days."
+  },
+  {
+    "id": "wear-027",
+    "slug": "womens-denim-jacket",
+    "name": "Women's Denim Jacket",
+    "nameBn": "মেয়েদের ডেনিম জ্যাকেট",
+    "audience": "Women",
+    "clothingType": "Jacket",
+    "category": "Outerwear",
+    "price": 2450,
+    "discountPercentage": 20,
+    "images": [
+      "/products/women-denim-jacket.jpg"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "Blue",
+      "Black"
+    ],
+    "isNew": false,
+    "rating": 4.5,
+    "stock": 9,
+    "description": "A timeless denim jacket for layering over everyday outfits."
+  },
+  {
+    "id": "wear-028",
+    "slug": "girls-party-top",
+    "name": "Girls Party Top",
+    "nameBn": "মেয়েদের পার্টি টপ",
+    "audience": "Girls",
+    "clothingType": "Top",
+    "category": "Kids Wear",
+    "price": 720,
+    "discountPercentage": 12,
+    "images": [
+      "/products/girls-party-top.jpg"
+    ],
+    "sizes": [
+      "2Y",
+      "4Y",
+      "6Y",
+      "8Y",
+      "10Y"
+    ],
+    "colors": [
+      "Pink",
+      "White",
+      "Lilac"
+    ],
+    "isNew": true,
+    "rating": 4.4,
+    "stock": 16,
+    "description": "A festive top that pairs easily with skirts and trousers."
+  }
+]

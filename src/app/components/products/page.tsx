@@ -1,54 +1,9 @@
-// import React from 'react';
 
-// const ProductsPage =async () => {
+import ProductCard from "../ProductCard";
+import productsData from "@/data/products.json";
 
-//     const res = await fetch("https://dummyjson.com/products?limit=0")
-
-//     const data = await res.json()
-//     const products = data.products;
-
-//     console.log(products)
-//     return (
-//         <div>
-//             {
-//               products.map(product => <div key={product.id}>
-//                 <h2>{product.thumbnail}</h2>
-//               </div>)  
-//             }
-//         </div>
-//     );
-// };
-
-// export default ProductsPage;
-
-
-
-
-import ProductCard from "../components/ProductCard";
-
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  category: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  thumbnail: string;
-}
-
-const ProductsPage = async () => {
-  const res = await fetch("https://dummyjson.com/products?limit=0");
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
-
-  const data: { products: Product[] } = await res.json();
-
-  const products = data.products;
+const ProductsPage = () => {
+  const products = productsData;
 
   return (
     <main className="min-h-screen bg-gray-50 px-4 py-10 sm:px-6 lg:px-10">
@@ -63,13 +18,20 @@ const ProductsPage = async () => {
           </h1>
 
           <p className="mt-2 text-gray-500">
-            Discover your favorite products at great prices.
+            Discover your favorite fashion at great prices.
+          </p>
+
+          <p className="mt-3 text-sm text-gray-600">
+            {products.length} products available
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
           ))}
         </div>
       </div>
