@@ -1,10 +1,8 @@
-
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { useCart } from "@/lib/cart";
 import {
   CiSearch,
   CiUser,
@@ -13,6 +11,9 @@ import {
   CiMenuBurger,
   CiCircleRemove,
 } from "react-icons/ci";
+import { useCart } from "@/lib/cart";
+import { useWishlist } from "@/lib/wishlist";
+import SearchForm from "./SearchForm";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -24,14 +25,27 @@ const navLinks = [
   { name: "New Arrivals", href: "/new-arrive" },
 ];
 
+function CountBadge({ count }: { count: number }) {
+  if (count === 0) {
+    return null;
+  }
+
+  return (
+    <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#65554B] px-1 text-[10px] font-semibold leading-none text-white">
+      {count > 99 ? "99+" : count}
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { count } = useCart();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { count: cartCount } = useCart();
+  const { count: wishlistCount } = useWishlist();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[#EAE3DA] bg-[#FDFBF7]/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1 sm:px-6 lg:px-8">
-
         {/* Logo */}
         <Link href="/" className="shrink-0">
           <Image
@@ -60,7 +74,10 @@ export default function Navbar() {
         {/* Action Icons */}
         <div className="flex shrink-0 items-center gap-3 text-[#655549] sm:gap-4">
           <button
+            type="button"
+            onClick={() => setIsSearchOpen((open) => !open)}
             aria-label="Search products"
+            aria-expanded={isSearchOpen}
             className="transition-colors hover:text-[#A88B72]"
           >
             <CiSearch size={24} />
@@ -76,29 +93,31 @@ export default function Navbar() {
 
           <Link
             href="/wishlist"
-            aria-label="Wishlist"
-            className="hidden transition-colors hover:text-[#A88B72] sm:block"
+            aria-label={
+              wishlistCount > 0
+                ? `Wishlist, ${wishlistCount} items`
+                : "Wishlist"
+            }
+            className="relative transition-colors hover:text-[#A88B72]"
           >
             <CiHeart size={24} />
+            <CountBadge count={wishlistCount} />
           </Link>
 
           <Link
             href="/cart"
             aria-label={
-              count > 0 ? `Shopping cart, ${count} items` : "Shopping cart"
+              cartCount > 0 ? `Shopping cart, ${cartCount} items` : "Shopping cart"
             }
             className="relative transition-colors hover:text-[#A88B72]"
           >
             <CiShoppingCart size={25} />
-            {count > 0 && (
-              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#65554B] px-1 text-[10px] font-semibold leading-none text-white">
-                {count > 99 ? "99+" : count}
-              </span>
-            )}
+            <CountBadge count={cartCount} />
           </Link>
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
@@ -112,6 +131,18 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Search */}
+      {isSearchOpen && (
+        <div className="border-t border-[#EAE3DA] bg-[#FDFBF7] px-4 py-3 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <SearchForm
+              autoFocus
+              onSubmitted={() => setIsSearchOpen(false)}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Mobile Navigation */}
       {isOpen && (
@@ -127,6 +158,20 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="/wishlist"
+              onClick={() => setIsOpen(false)}
+              className="border-b border-[#EAE3DA]/70 py-3 text-sm font-medium text-[#655549] transition-colors hover:pl-2 hover:text-[#A88B72]"
+            >
+              Wishlist
+            </Link>
+            <Link
+              href="/profile"
+              onClick={() => setIsOpen(false)}
+              className="py-3 text-sm font-medium text-[#655549] transition-colors hover:pl-2 hover:text-[#A88B72]"
+            >
+              My Account
+            </Link>
           </div>
         </div>
       )}

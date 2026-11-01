@@ -6,6 +6,7 @@ import { FaStar } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
 import ProductCard from "../../ProductCard";
 import ProductPurchasePanel from "../../ProductPurchasePanel";
+import WishlistButton from "../../WishlistButton";
 import {
   getDiscountedPrice,
   getProductBySlug,
@@ -112,9 +113,17 @@ export default async function ProductDetailsPage({ params }: Props) {
               {product.audience} / {product.clothingType}
             </p>
 
-            <h1 className="mt-3 font-serif text-3xl font-medium tracking-tight text-[#352B24] sm:text-4xl">
-              {product.name}
-            </h1>
+            <div className="mt-3 flex items-start justify-between gap-4">
+              <h1 className="font-serif text-3xl font-medium tracking-tight text-[#352B24] sm:text-4xl">
+                {product.name}
+              </h1>
+              <WishlistButton
+                productId={product.id}
+                productName={product.name}
+                size={18}
+                className="mt-1 shrink-0"
+              />
+            </div>
 
             <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-[#655549]">
               <span className="flex items-center gap-1">

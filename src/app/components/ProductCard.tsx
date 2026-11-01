@@ -5,6 +5,7 @@ import { FaStar } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { getDiscountedPrice, type Product } from "@/lib/products";
 import AddToCartButton from "./AddToCartButton";
+import WishlistButton from "./WishlistButton";
 
 interface ProductCardProps {
   product: Product;
@@ -19,7 +20,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const href = `/components/products/${product.slug}`;
 
   return (
-    <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Product Image */}
       <Link
         href={href}
@@ -49,7 +50,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Discount Badge */}
         {product.discountPercentage > 0 && (
-          <span className="absolute right-3 top-3 rounded-full bg-[#65554B] px-3 py-1 text-xs font-semibold text-white">
+          <span className="absolute bottom-3 left-3 rounded-full bg-[#65554B] px-3 py-1 text-xs font-semibold text-white">
             -{Math.round(product.discountPercentage)}%
           </span>
         )}
@@ -61,6 +62,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         )}
       </Link>
+
+      <WishlistButton
+        productId={product.id}
+        productName={product.name}
+        className="absolute right-3 top-3 z-10"
+      />
 
       {/* Product Information */}
       <div className="p-4">

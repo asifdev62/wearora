@@ -5,10 +5,21 @@ import Link from "next/link";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { itemKey, useCart } from "@/lib/cart";
+import { useHydrated } from "@/lib/use-hydrated";
 
 export default function CartView() {
   const { items, count, subtotal, setQuantity, removeItem, clearCart } =
     useCart();
+  const hydrated = useHydrated();
+
+  if (!hydrated) {
+    return (
+      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
+        <div className="h-80 animate-pulse rounded-2xl bg-[#F1EAE1]" />
+        <div className="h-64 animate-pulse rounded-2xl bg-[#F1EAE1]" />
+      </div>
+    );
+  }
 
   if (items.length === 0) {
     return (
@@ -164,13 +175,12 @@ export default function CartView() {
           </span>
         </div>
 
-        <button
-          type="button"
-          disabled
-          className="mt-6 flex w-full items-center justify-center rounded-xl bg-gray-400 px-6 py-4 text-sm font-semibold text-white"
+        <Link
+          href="/checkout"
+          className="mt-6 flex w-full items-center justify-center rounded-xl bg-[#65554B] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#493A30]"
         >
-          Checkout coming soon
-        </button>
+          Proceed to Checkout
+        </Link>
 
         <Link
           href="/components/products"
