@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CartView from "../components/CartView";
 
 export const metadata: Metadata = {
-  title: "Your Cart | Wearora",
+  title: "Your Cart",
   description: "Review the items in your Wearora shopping cart.",
 };
 

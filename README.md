@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wearora
 
-## Getting Started
+Fashion storefront for a Bangla-market clothing brand — "Wear your story". Prices are in BDT.
 
-First, run the development server:
+Built with Next.js 16 (App Router, Turbopack), React 19, and Tailwind CSS v4.
+
+## Features
+
+- 28-product catalog loaded from `src/data/products.json`, with local images in `public/products/`
+- Audience filtering (Men, Women, Boys, Girls), search, new arrivals, and top-rated picks
+- Product detail pages with size/colour selection, stock status, and related products
+- Wishlist and cart with quantity controls, persisted in `localStorage`
+- Demo cash-on-delivery checkout with an order confirmation and order history
+- Responsive layout with a mobile menu and search panel
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command             | What it does                                  |
+| ------------------- | --------------------------------------------- |
+| `npm run dev`       | Turbopack dev server on port 3000             |
+| `npm run build`     | Production build (also runs TypeScript)       |
+| `npm run start`     | Serve the production build                    |
+| `npm run lint`      | ESLint across the repo (`eslint`)             |
+| `npx tsc --noEmit`  | Typecheck without emitting files              |
 
-## Learn More
+There is no test runner configured.
 
-To learn more about Next.js, take a look at the following resources:
+## Routes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Route                          | Page                                              |
+| ------------------------------ | ------------------------------------------------- |
+| `/`                            | Home: hero, categories, new arrivals, top rated   |
+| `/components/products`         | All products, optional `?audience=Men` filter     |
+| `/components/products/[slug]`  | Product details                                   |
+| `/new-arrive`                  | New arrivals                                      |
+| `/search?q=`                   | Search results                                    |
+| `/wishlist`                    | Saved products                                    |
+| `/cart`                        | Cart and order summary                            |
+| `/checkout`                    | Delivery details and place order                  |
+| `/checkout/success`            | Order confirmation                                |
+| `/profile`                     | Demo account, saved items, order history          |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## How state works
 
-## Deploy on Vercel
+There is no backend. Cart, wishlist, and orders are stored in the browser:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `wearora-cart` — line items with size, colour, and quantity
+- `wearora-wishlist` — saved product IDs
+- `wearora-orders` — placed orders with customer and delivery details
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Each store is created with `createLocalStore` (`src/lib/local-store.ts`) and hydrated once by `AppProviders` in the root layout. Views read them through `useCart()`, `useWishlist()`, and `useOrders()`.
+
+## Notes
+
+- Checkout is a demo: no payment, inventory, or server persistence. Orders stay in the browser.
+- `nameBn` fields in the catalog were lost to an encoding issue and contain `?` placeholders.
+- `next build` can exit 1 on the first run with a Next.js security-advisory reminder; re-run the command and the build completes.
+- Version-matched Next.js docs are bundled at `node_modules/next/dist/docs/`.

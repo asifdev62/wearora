@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Wearora
 
-Single-app Next.js storefront for a Bangla-market clothing brand (prices in BDT). No backend, no database, no test suite — the catalog is a static JSON file. `README.md` is still create-next-app boilerplate; trust `package.json` and the code instead.
+Single-app Next.js storefront for a Bangla-market clothing brand (prices in BDT). Frontend-only: no backend, database, auth, or payments. The catalog is `src/data/products.json`; cart, wishlist, and orders live in `localStorage`.
 
 ## Commands
 
@@ -23,22 +23,30 @@ Single-app Next.js storefront for a Bangla-market clothing brand (prices in BDT)
 ## Next.js 16.4 specifics
 
 - Version-matched docs live in `node_modules/next/dist/docs/` — read the relevant guide before using any framework API.
-- `next.config.ts` enables `cacheComponents` and `partialPrefetching`. Dev mode validates that every page navigates instantly and reports blocking code in the overlay. A page that legitimately blocks (e.g. awaiting `searchParams`) opts out with `export const instant = false;` — see `src/app/components/products/page.tsx`. `instant` only works in server components.
+- `next.config.ts` enables `cacheComponents` and `partialPrefetching`. Dev mode validates that every page navigates instantly and reports blocking code in the overlay. A page that legitimately blocks on URL data opts out with `export const instant = false;` — see `src/app/components/products/page.tsx`. `instant` only works in server components.
+- `/search` awaits `searchParams` inside `<Suspense>` instead; keep URL reads inside that boundary.
 - `LayoutProps<"/">` in `src/app/layout.tsx` is a globally generated type; don't import it.
 
-## Structure gotchas
+## Routes and structure
 
-- `src/app/components/` is a **route directory**, not just a component folder. `Navbar.tsx`, `Banner.tsx`, `ProductCard.tsx` sit there without `page.tsx` and are not routable, but `components/home/page.tsx` serves `/components/home` and `components/products/page.tsx` serves `/components/products`. Adding a `page.tsx` anywhere under `src/app/components/` creates a public URL — check the route table printed by `next build`.
-- Product detail pages are `src/app/components/products/[slug]/page.tsx` (`/components/products/<slug>`), prerendered for every slug via `generateStaticParams`; the cart is `/cart`.
-- `/` renders `components/home/page.tsx`, which imports `new-arrive/page.tsx`, so the New Arrivals grid appears on both `/` and `/new-arrive` and edits to that file change both pages.
-- `Navbar` links to `/profile` and `/wishlist`, which have no pages yet.
+- `/` → `src/app/page.tsx` → `components/home/page.tsx`, which composes `Banner`, `CategoryTiles`, `NewArrivals`, and `FeaturedProducts`. `/components/home` serves the same content as a standalone route.
+- `/components/products` is the list with an `?audience=` filter; detail pages are `/components/products/[slug]`, prerendered for every slug via `generateStaticParams`.
+- `/new-arrive` reuses `components/home/NewArrivals` with `showHeader={false}`; `/wishlist`, `/cart`, `/checkout`, `/checkout/success`, and `/profile` are client-rendered views over the stores.
+- `src/app/components/` is a **route directory**, not just a component folder. Most files there have no `page.tsx` and are not routable, but `components/home/page.tsx` and `components/products/page.tsx` are real URLs. Adding a `page.tsx` anywhere under `src/app/components/` creates a public route — check the route table printed by `next build`.
+- Windows checkouts run with `git core.ignorecase=true`, which hides case-only renames. A tracked `productCard.tsx` once broke Linux builds while imports used `ProductCard`. After renaming a file, confirm with `git ls-files` and use a two-step `git mv` if only the case changed.
 - `@/*` maps to `src/*`.
+
+## State
+
+- Every store is built with `createLocalStore` from `src/lib/local-store.ts`, hydrated once in `AppProviders` (root layout), and synced across tabs through `storage` events. Consume them only from client components via `useCart()`, `useWishlist()`, or `useOrders()`.
+- Storage keys: `wearora-cart`, `wearora-wishlist`, `wearora-orders`.
+- Stores are empty during server rendering. Wrap localStorage-backed views in `useHydrated()` (`src/lib/use-hydrated.ts`) and render a skeleton until it returns true, or the empty state flashes.
+- Checkout is a demo: `CheckoutForm` writes an order to localStorage and clears the cart. There is no payment, inventory check, or server persistence.
 
 ## Data and styling
 
 - Catalog data: `src/data/products.json` (28 products) imported directly by pages. Images are local files in `public/products/` referenced as `/products/<file>.jpg`; the `cdn.dummyjson.com` entry in `next.config.ts` `images.remotePatterns` is a leftover from the original dataset.
 - `nameBn` values are already corrupted to `?` placeholders (encoding loss); treat them as missing text, not Bengali.
-- The `Product` type and lookups (`getProductBySlug`, `getDiscountedPrice`, `getRelatedProducts`) live in `src/lib/products.ts`; import them instead of re-declaring the shape or re-filtering the JSON.
-- Cart state is a module store in `src/lib/cart.ts`, persisted to `localStorage` under `wearora-cart` and exposed via `useCart()`. Only client components may call it (`CartProvider` hydrates it in the root layout).
+- `src/lib/products.ts` owns the `Product` type and all lookups (`getProductBySlug`, `getDiscountedPrice`, `getRelatedProducts`, `getProductsByIds`, `getFeaturedProducts`, `searchProducts`); import them instead of re-declaring the shape or re-filtering the JSON.
 - Tailwind v4 with no config file: `src/app/globals.css` is only `@import "tailwindcss";`, and the `@tailwindcss/turbopack` loader is wired through `turbopack.rules` in `next.config.ts` (not PostCSS). Styling uses utility classes with arbitrary hex values from a warm palette (`#65554B`/`#655549`, `#FDFBF7`, `#A88B72`, `#352B24`); stay in that palette instead of adding new colors.
 - Icons come from `react-icons` (`ci`, `fa`, `fa6`, `tb`).

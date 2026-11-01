@@ -27,11 +27,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = getProductBySlug(slug);
 
   if (!product) {
-    return { title: "Product not found | Wearora" };
+    return { title: "Product not found" };
   }
 
   return {
-    title: `${product.name} | Wearora`,
+    title: product.name,
     description: product.description,
   };
 }

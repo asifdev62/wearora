@@ -1,15 +1,17 @@
-import React from 'react';
-import Banner from '../Banner';
-import NewArrivePage from '@/app/new-arrive/page';
-
+import Banner from "../Banner";
+import CategoryTiles from "./CategoryTiles";
+import FeaturedProducts from "./FeaturedProducts";
+import NewArrivals from "./NewArrivals";
 
 const HomePage = () => {
-    return (
-        <div>
-            <Banner />
-            <NewArrivePage />
-        </div>
-    );
+  return (
+    <div>
+      <Banner />
+      <CategoryTiles />
+      <NewArrivals />
+      <FeaturedProducts />
+    </div>
+  );
 };
 
 export default HomePage;
