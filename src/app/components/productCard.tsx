@@ -1,25 +1,10 @@
 
 import Image from "next/image";
-import { FaStar, FaShoppingCart } from "react-icons/fa";
+import Link from "next/link";
+import { FaStar } from "react-icons/fa";
 import { TbCurrencyTaka } from "react-icons/tb";
-
-interface Product {
-  id: string;
-  slug: string;
-  name: string;
-  nameBn: string;
-  audience: string;
-  clothingType: string;
-  category: string;
-  price: number;
-  discountPercentage: number;
-  images: string[];
-  sizes: string[];
-  colors: string[];
-  isNew: boolean;
-  rating: number;
-  stock: number;
-}
+import { getDiscountedPrice, type Product } from "@/lib/products";
+import AddToCartButton from "./AddToCartButton";
 
 interface ProductCardProps {
   product: Product;
@@ -30,14 +15,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
     return null;
   }
 
-  const discountedPrice =
-    product.price -
-    (product.price * product.discountPercentage) / 100;
+  const discountedPrice = getDiscountedPrice(product);
+  const href = `/components/products/${product.slug}`;
 
   return (
     <div className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       {/* Product Image */}
-      <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gray-50 p-5 ">
+      <Link
+        href={href}
+        aria-label={`View ${product.name}`}
+        className="relative flex h-64 items-center justify-center overflow-hidden bg-gray-50 p-5"
+      >
         {product.images?.[0] ? (
           <Image
             src={product.images[0]}
@@ -72,7 +60,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             Out of Stock
           </span>
         )}
-      </div>
+      </Link>
 
       {/* Product Information */}
       <div className="p-4">
@@ -81,7 +69,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </p>
 
         <h2 className="line-clamp-2 min-h-12 text-base font-semibold text-gray-800 transition group-hover:text-[#65554B]">
-          {product.name}
+          <Link href={href}>{product.name}</Link>
         </h2>
         {/* Rating */}
         <div className="mt-3 flex items-center gap-2">
@@ -111,7 +99,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         {/* Price */}
         <div className="mt-4 flex flex-wrap items-center gap-2">
           <span className="text-xl font-bold text-gray-900 flex items-center ">
-            <TbCurrencyTaka  size={22}/> {Math.round(discountedPrice)}
+            <TbCurrencyTaka  size={22}/> {discountedPrice}
           </span>
 
           {product.discountPercentage > 0 && (
@@ -123,14 +111,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
 
         {/* Add to Cart */}
-        <button
-          type="button"
-          disabled={product.stock === 0}
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#65554B] px-4 py-3 text-sm font-semibold text-white transition hover:bg-gray-500 disabled:cursor-not-allowed disabled:bg-gray-400"
-        >
-          <FaShoppingCart />
-          {product.stock === 0 ? "Out of Stock" : "Add to Cart"}
-        </button>
+        <AddToCartButton
+          className="mt-4"
+          item={{
+            id: product.id,
+            slug: product.slug,
+            name: product.name,
+            image: product.images[0] ?? "",
+            price: discountedPrice,
+            size: product.sizes[0] ?? "",
+            color: product.colors[0] ?? "",
+            stock: product.stock,
+          }}
+        />
       </div>
     </div>
   );

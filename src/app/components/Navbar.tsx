@@ -4,6 +4,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useCart } from "@/lib/cart";
 import {
   CiSearch,
   CiUser,
@@ -25,6 +26,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { count } = useCart();
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[#EAE3DA] bg-[#FDFBF7]/95 backdrop-blur-md">
@@ -82,10 +84,17 @@ export default function Navbar() {
 
           <Link
             href="/cart"
-            aria-label="Shopping cart"
-            className="transition-colors hover:text-[#A88B72]"
+            aria-label={
+              count > 0 ? `Shopping cart, ${count} items` : "Shopping cart"
+            }
+            className="relative transition-colors hover:text-[#A88B72]"
           >
             <CiShoppingCart size={25} />
+            {count > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#65554B] px-1 text-[10px] font-semibold leading-none text-white">
+                {count > 99 ? "99+" : count}
+              </span>
+            )}
           </Link>
 
           {/* Mobile Menu Button */}
